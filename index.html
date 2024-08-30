@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Inspiré de Nike</title>
+    
+    <!-- Importer la police "Space Grotesk" de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400&display=swap" rel="stylesheet">
+
+    <style>
+        /* Réinitialiser les marges et paddings par défaut */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: yellow;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Barre de navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3px 20px; /* Réduit le padding pour réduire la hauteur */
+            background-color: #000;
+            border-bottom: 1px solid #eaeaea; /* Ligne de séparation */
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo img {
+            width: 100px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 15px;
+            color: yellow;
+        }
+
+        .nav-links li a:hover {
+            background-color: #f2f2f2;
+        }
+
+        .account-icons .icon {
+            margin-left: 20px;
+            font-size: 16px;
+            color: yellow;
+        }
+
+        /* Section principale avec vidéo */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+            z-index: 10;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #111;
+            color: yellow;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .cta-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Nouvelle section avec texte défilant */
+        .scrolling-text-section {
+            background-color: #000;
+            color: yellow;
+            font-size: 12px;
+            overflow: hidden;
+            position: relative;
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .scrolling-text {
+            position: absolute;
+            white-space: nowrap;
+            animation: scrollText 20s linear infinite;
+        }
+
+        @keyframes scrollText {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Styles pour les pages de connexion et inscription */
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #000;
+            border: 2px solid yellow;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 100px auto;
+        }
+
+        .form-container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid yellow;
+            border-radius: 5px;
+            background-color: #333;
+            color: yellow;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: yellow;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #ffd700;
+        }
+
+        .password-validation {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .password-validation span {
+            margin-left: 10px;
+            font-size: 12px;
+        }
+
+        .validation-icon {
+            width: 15px;
+            height: 15px;
+            margin-left: 5px;
+        }
+
+        .gmail-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background-color: #4285F4;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .gmail-button:hover {
+            background-color: #357ae8;
+        }
+
+        /* Styles pour les appareils mobiles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .cta-button {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="RU.png" alt="Logo">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="https://unitylinkcorporation.wixsite.com/rumbfrance/security">À propos</a></li>
+                </ul>
+            </nav>
+            <div class="account-icons">
+                <a href="connexion-inscription" class="icon">Compte</a>
+                <a href="#" class="icon">Panier</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section principale avec vidéo -->
+    <main>
+        <section class="hero">
+            <video autoplay muted loop class="background-video">
+                <source src="ready.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas les vidéos HTML5.
+            </video>
+            <div class="hero-content">
+                <h1>Explorez notre sélection quotidienne</h1>
+                <p>Découvrez le confort, la sécurité et conservez votre anonymat.</p>
+                <!-- Bouton avec vidéo de fond -->
+                <a href="https://UnityLinkcorporation.wixsite.com/rumbfrance" class="cta-button">
+                    Essayer la Démo Wix
+                    <!-- Vidéo de fond pour le bouton -->
+                    <video autoplay muted loop>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas les vidéos HTML5.
+                    </video>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Nouvelle section avec texte défilant -->
+    <section class="scrolling-text-section">
+        <div class="scrolling-text">
+             Rumb.fr est spécialisé dans le contenu pour adultes, en acceptant d'essayer notre démo, vous nous autorisez à accéder à votre activité en ligne, vos préférences vidéastes ainsi que votre nom d'utilisateur au sein de notre plateforme. Notre site est 100% sécurisé notamment grâce à notre partenaire "Wix" qui permet de crypter une partie de vos données et de les supprimer par la suite 24 heures près votre dernier visionnage."
